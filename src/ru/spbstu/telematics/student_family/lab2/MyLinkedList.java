@@ -1,6 +1,7 @@
 package ru.spbstu.telematics.student_family.lab2;
 
 import java.util.Iterator;
+import java.util.LinkedList;
 
 public class MyLinkedList<T> implements Iterable<T> {
     private Node<T> Head;
@@ -154,14 +155,15 @@ public class MyLinkedList<T> implements Iterable<T> {
     public boolean equals(Object obj){
         if(this==obj) return true;
         if(obj==null) return false;
-        MyLinkedList<T> list = (MyLinkedList<T>) obj;
-        if(list.size != size) return false;
+        LinkedList<T> list = (LinkedList<T>) obj;
+        if(list.size() != size) return false;
         Node<T> tmp=Head;
-        Node<T> listTmp=list.Head;
+        //Node<T> listTmp=list.Head;
+        //list.
         while (tmp!=null){
-            if(tmp.data!=listTmp.data) return false;
+            if(tmp.data!=list.pollFirst()) return false;
             tmp=tmp.next;
-            listTmp=listTmp.next;
+            //listTmp=listTmp.next;
         }
         return true;
     }

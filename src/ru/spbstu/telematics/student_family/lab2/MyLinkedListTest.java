@@ -3,6 +3,8 @@ package ru.spbstu.telematics.student_family.lab2;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.LinkedList;
+
 public class MyLinkedListTest {
 
     @Test
@@ -10,24 +12,34 @@ public class MyLinkedListTest {
         MyLinkedList<String> expected=new MyLinkedList<>();
         expected.addFirst("Hello World!");
         expected.addLast("Bye!");
-        Assert.assertEquals(expected.getSize(), 2);
+
+        LinkedList<String> actual=new LinkedList<>();
+        actual.addFirst("Hello World!");
+        actual.addLast("Bye!");
+        Assert.assertEquals(expected.getSize(), actual.size());
     }
 
     @Test
     public void getFirst() {
         MyLinkedList<String> expected=new MyLinkedList<>();
-        String actual="Hello World!";
         expected.addFirst("Hello World!");
-        Assert.assertEquals(expected.getFirst(), actual);
+        LinkedList<String> actual=new LinkedList<>();
+        actual.addFirst("Hello World!");
+        Assert.assertEquals(expected.getFirst(), actual.getFirst());
     }
 
     @Test
     public void getLast() {
         MyLinkedList<String> expected=new MyLinkedList<>();
-        String actual="Hello World!";
+
         expected.addLast("Java");
         expected.addLast("Hello World!");
-        Assert.assertEquals(expected.getLast(), actual);
+
+        LinkedList<String> actual=new LinkedList<>();
+
+        actual.addLast("Java");
+        actual.addLast("Hello World!");
+        Assert.assertEquals(expected.getLast(), actual.getLast());
     }
 
     @Test
@@ -35,7 +47,7 @@ public class MyLinkedListTest {
         MyLinkedList<String> expected=new MyLinkedList<>();
         expected.addFirst("string");
 
-        MyLinkedList<String> actual=new MyLinkedList<>();
+        LinkedList<String> actual=new LinkedList<>();
         actual.addFirst("string");
         Assert.assertEquals(expected, actual);
     }
@@ -45,7 +57,7 @@ public class MyLinkedListTest {
         MyLinkedList<String> expected=new MyLinkedList<>();
         expected.addLast("string");
 
-        MyLinkedList<String> actual=new MyLinkedList<>();
+        LinkedList<String> actual=new LinkedList<>();
         actual.addLast("string");
         Assert.assertEquals(expected, actual);
     }
@@ -57,7 +69,7 @@ public class MyLinkedListTest {
         expected.addFirst("string");
         expected.removeFirst();
 
-        MyLinkedList<String> actual=new MyLinkedList<>();
+        LinkedList<String> actual=new LinkedList<>();
         actual.addFirst("Hello World!");
         Assert.assertEquals(expected, actual);
     }
@@ -69,7 +81,7 @@ public class MyLinkedListTest {
         expected.addFirst("string");
         expected.removeLast();
 
-        MyLinkedList<String> actual=new MyLinkedList<>();
+        LinkedList<String> actual=new LinkedList<>();
         actual.addFirst("string");
         Assert.assertEquals(expected, actual);
     }
@@ -80,10 +92,9 @@ public class MyLinkedListTest {
         expected.addFirst("string 2");
         expected.addFirst("Hello World!");
         expected.addFirst("string");
-
         expected.remove(1);
 
-        MyLinkedList<String> actual=new MyLinkedList<>();
+        LinkedList<String> actual=new LinkedList<>();
         actual.addFirst("string 2");
         actual.addFirst("string");
         Assert.assertEquals(expected, actual);
@@ -94,8 +105,8 @@ public class MyLinkedListTest {
         MyLinkedList<String> expected=new MyLinkedList<>();
         expected.add(0, "string");
 
-        MyLinkedList<String> actual=new MyLinkedList<>();
-        actual.addFirst("string");
+        LinkedList<String> actual=new LinkedList<>();
+        actual.add(0,"string");
         Assert.assertEquals(expected, actual);
     }
 
@@ -103,7 +114,10 @@ public class MyLinkedListTest {
     public void contains() {
         MyLinkedList<String> expected=new MyLinkedList<>();
         expected.addFirst("Hello World!");
-        Assert.assertTrue(expected.contains("Hello World!"));
+
+        LinkedList<String> actual=new LinkedList<>();
+        actual.addFirst("Hello World!");
+        Assert.assertEquals(expected.contains("Hello World!"), actual.contains("Hello World!"));
     }
 
     @Test
@@ -112,7 +126,7 @@ public class MyLinkedListTest {
         list1.addFirst("Hello World!");
         list1.addFirst("Bye");
 
-        MyLinkedList<String> list2=new MyLinkedList<>();
+        LinkedList<String> list2=new LinkedList<>();
         list2.addFirst("Hello World!");
         list2.addFirst("Bye");
 
