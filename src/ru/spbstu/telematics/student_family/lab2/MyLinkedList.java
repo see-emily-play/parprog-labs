@@ -158,12 +158,9 @@ public class MyLinkedList<T> implements Iterable<T> {
         LinkedList<T> list = (LinkedList<T>) obj;
         if(list.size() != size) return false;
         Node<T> tmp=Head;
-        //Node<T> listTmp=list.Head;
-        //list.
         while (tmp!=null){
             if(tmp.data!=list.pollFirst()) return false;
             tmp=tmp.next;
-            //listTmp=listTmp.next;
         }
         return true;
     }
