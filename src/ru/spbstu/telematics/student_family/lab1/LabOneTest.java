@@ -10,6 +10,7 @@ public class LabOneTest {
     @Test
     public void generateWithLettersTest() {
         int length=10;
+        boolean test=true;
         Assert.assertEquals(generateWithLetters(length).length(), length);
     }
 
